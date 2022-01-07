@@ -2,7 +2,8 @@
 FROM maven:3.6.3-jdk-8-slim AS stage1
 WORKDIR /home/app
 COPY . /home/app/
-RUN mvn -f /home/app/pom.xml clean package
+# COPY ./settings.xml /root/.m2
+RUN mvn -s /home/app/settings.xml -f /home/app/pom.xml clean package
 
 # Create an Image
 FROM openjdk:8-jdk-alpine
