@@ -64,6 +64,7 @@ Thumbs.db
 *.settings
 *.project
 *.mvn
+settings.xml
 mvnw
 target
 *.DS_Store
