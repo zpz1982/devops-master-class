@@ -14,6 +14,7 @@ variables:
   imageRepository: 'zpzdevopsmasterclass'
   containerRegistry: 'zpzdocker.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/projects/hello-world/hello-world-java/Dockerfile'
+  projectPath: '$(Build.SourcesDirectory)/projects/hello-world/hello-world-java/'
   tag: '$(Build.BuildId)'
 
   # Agent VM image name
@@ -28,6 +29,15 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
+    - task: MavenAuthenticate@0
+      inputs:
+        artifactsFeeds: 'packages'
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: '$(user.home)/.m2'
+        Contents: 'settings.xml'
+        TargetFolder: '$(projectPath)'
+        OverWrite: true
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
