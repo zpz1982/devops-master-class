@@ -34,7 +34,7 @@ stages:
         artifactsFeeds: 'packages'
     - task: CopyFiles@2
       inputs:
-        SourceFolder: '$(user.home)/.m2'
+        SourceFolder: '$(Agent.HomeDirectory)/.m2'
         Contents: 'settings.xml'
         TargetFolder: '$(projectPath)'
         OverWrite: true
