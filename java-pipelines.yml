@@ -32,9 +32,11 @@ stages:
     - task: MavenAuthenticate@0
       inputs:
         artifactsFeeds: 'packages'
+        mavenServiceConnections: 
+
     - task: CopyFiles@2
       inputs:
-        SourceFolder: '$(Agent.HomeDirectory)/.m2'
+        SourceFolder: '/home/vsts/.m2'
         Contents: 'settings.xml'
         TargetFolder: '$(projectPath)'
         OverWrite: true
