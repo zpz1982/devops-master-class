@@ -3,4 +3,15 @@
   <groupId>pingzhi</groupId>
   <artifactId>devops</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+
+  <repository>
+    <id>packages</id>
+    <url>https://pkgs.dev.azure.com/yingze20130812/67b04b9f-3dc9-4cc3-8358-2c6246300faf/_packaging/packages/maven/v1</url>
+    <releases>
+      <enabled>true</enabled>
+    </releases>
+    <snapshots>
+      <enabled>true</enabled>
+    </snapshots>
+  </repository>
 </project>
